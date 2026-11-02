@@ -1,9 +1,4 @@
 ---
-interface Props {
-  /** True when the build includes Google Analytics, so the consent controls are relevant. */
-  analytics?: boolean;
-}
-const { analytics = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
@@ -13,16 +8,6 @@ const year = new Date().getFullYear();
       © {year} Ettore Ciarcia · Built with Astro, hosted on S3 + CloudFront, deployed by GitHub Actions ·
       <a href="/index.xml" class="underline-link">RSS</a> ·
       <a href="/privacy/" class="underline-link">Privacy</a>
-      {
-        analytics && (
-          <>
-            {' · '}
-            <a href="/privacy/#cookie-settings" class="underline-link" data-cookie-settings>
-              Cookie settings
-            </a>
-          </>
-        )
-      }
     </p>
   </div>
 </footer>

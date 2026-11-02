@@ -1,0 +1,22 @@
+---
+// Temporary direct integration while migrating to another analytics provider.
+interface Props {
+  gaId: string;
+}
+const { gaId } = Astro.props;
+---
+
+<script is:inline define:vars={{ gaId }}>
+  (function () {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag('js', new Date());
+    window.gtag('config', gaId);
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+    document.head.appendChild(script);
+  })();
+</script>

@@ -4,7 +4,7 @@ import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import CookieConsent from '../components/CookieConsent.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import { SITE } from '../lib/site';
 
 interface Props {
@@ -120,7 +120,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
     <main class:list={['flex-1 w-full max-w-3xl mx-auto px-5 sm:px-6 py-10 sm:py-14', mainClass]}>
       <slot />
     </main>
-    <Footer analytics={Boolean(gaId)} />
-    {gaId && <CookieConsent gaId={gaId} />}
+    <Footer />
+    {gaId && <GoogleAnalytics gaId={gaId} />}
   </body>
 </html>
