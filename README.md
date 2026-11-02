@@ -19,10 +19,6 @@ npm run preview # serve ./dist locally (search works only here, not in dev)
 npm run check   # type-check pages and content front matter
 ```
 
-Set `PUBLIC_GA_ID` at build time to enable Google Analytics (CI passes it from the `TRACKING_ID` secret).
-GA is loaded only after the visitor accepts the cookie banner (`src/components/CookieConsent.astro`);
-without `PUBLIC_GA_ID` there is no banner and no analytics. What is collected is described on `/privacy/`.
-
 ## Writing content
 
 Every entry is a folder with an `index.md` and its images next to it. The folder name is the URL slug.
